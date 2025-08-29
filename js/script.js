@@ -15,10 +15,7 @@ getIdElement("cards-btns").addEventListener("click", function (e) {
         const serviceNumber = callBtn.parentNode.parentNode.children[1].children[3].children[0].innerText
         const currenTime = new Date()
 
-        console.log(currenTime)
-
-
-
+        
         const currentCoin = Number(coinBtn);
 
         if (currentCoin < 20) {
@@ -50,11 +47,28 @@ getIdElement("cards-btns").addEventListener("click", function (e) {
     else if (e.target.className.includes("copy-btn")) {
         const callBtn = e.target;
         const serviceNumber = callBtn.parentNode.parentNode.children[1].children[3].children[0].innerText;
+        const copyBtn = callBtn.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[1].children[2].children[0].children[0].innerText;
+
+        const currentCopyBtn = Number(copyBtn)
+        
+        let newCopyCount = currentCopyBtn + 1;
+
+        getIdElement("copy").innerText = newCopyCount;
 
         navigator.clipboard.writeText(serviceNumber)
         alert(`Number copied ${serviceNumber}`)
 
 
+
+    }
+    else if(e.target.className.includes("icon-heart")){
+        const callBtn = e.target;
+        const heartBtn = callBtn.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[1].children[0].children[0].innerText;
+        const currentHearts = Number(heartBtn);
+        
+        let newHearts = currentHearts + 1;
+        
+        getIdElement("heart-icon").innerText = newHearts;
     }
 
 })
@@ -65,8 +79,5 @@ getIdElement("clear-btn").addEventListener("click", function () {
 })
 
 
-getIdElement("heart-icon").addEventListener("click", function(e){
-    const event = e.target
-    console.log(event)
-})
+
 
